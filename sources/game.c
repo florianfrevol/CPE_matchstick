@@ -31,6 +31,7 @@ char **delete_pipe(s_t *s, char **tabl)
 		e ++;
 	}
 	my_revstr(tabl[s->first_choice]);
+	display_sentence(s, tabl);
 	s->ia_or_you = 0;
 	return (tabl);
 }
