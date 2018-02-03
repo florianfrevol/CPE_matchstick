@@ -9,7 +9,6 @@ SRC	=	sources/src.c	\
 		sources/mathstick.c\
 		sources/getnbr.c\
 		sources/create_game.c\
-		sources/get_next_line.c\
 		sources/play_game.c\
 		sources/game.c\
 		sources/ia_turn.c

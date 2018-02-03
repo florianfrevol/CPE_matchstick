@@ -23,8 +23,8 @@ char *re_alloc(char *chaine, int compt, int c)
 	return (str2);
 }
 
-static int i = 0;
-static int m = 0;
+static const int i = 0;
+static const int m = 0;
 
 char *get_next_line(int fd)
 {
