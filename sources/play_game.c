@@ -66,7 +66,7 @@ int check_imput_2(s_t *s, char *str)
 
 char **capt_information(char **tabl, s_t *s)
 {
-	char *str;
+	char str[10];
 
 	if (s->check_turn == 1) {
 		display_tabl(tabl);
@@ -79,7 +79,6 @@ char **capt_information(char **tabl, s_t *s)
 		return (0);
 	s->first_choice = get_nbr(str);
 	my_putstr("Matches: ");
-	free(str);
 	read(0, str, 10);
 	if (check_imput_2(s, str) == 1 || check_enought_2(str, tabl, s) == 1)
 		return (0);
