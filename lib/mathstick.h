@@ -16,7 +16,7 @@ typedef struct s
 } s_t;
 
 #ifndef READ_SIZE
-#	define READ_SIZE (100)
+#	define READ_SIZE (1)
 #endif /* ! READ_SIZE */
 
 int my_put_nbr(int nb);

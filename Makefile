@@ -11,6 +11,7 @@ SRC	=	sources/src.c	\
 		sources/create_game.c\
 		sources/play_game.c\
 		sources/game.c\
+		sources/get_next_line.c\
 		sources/ia_turn.c
 
 CFLAGS	=	-W -Wextra -Wall -I lib -I sources
