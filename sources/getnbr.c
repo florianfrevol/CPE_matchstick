@@ -29,7 +29,7 @@ int get_nbr(char *str)
 
 void my_error(char *str)
 {
-	write(2, &str, my_strlen(str));
+	write(2, str, my_strlen(str));
 }
 
 int my_put_nbr_error(int nb)
@@ -66,4 +66,14 @@ int end(s_t *s)
 		my_putstr("I lost... snif... but I'll get you next time!!\n");
 		return (1);
 	}
+}
+
+char **reduce_main(s_t *s, char **tabl)
+{
+	if (s->ia_or_you == 0 && pipe_are_real(tabl, s) == 1) {
+		ia_turn(tabl, s);
+	}
+	if (s->ia_or_you == 1 && pipe_are_real(tabl, s) == 0)
+		display_tabl(tabl);
+	return (tabl);
 }

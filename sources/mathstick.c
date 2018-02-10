@@ -85,11 +85,7 @@ int main(int argc, char **argv)
 			capt_information(tabl, &s);
 		if (s.error == 1)
 			return (84);
-		if (s.ia_or_you == 0 && pipe_are_real(tabl, &s) == 1) {
-			ia_turn(tabl, &s);
-		}
-		if (s.ia_or_you == 1 && pipe_are_real(tabl, &s) == 0)
-			display_tabl(tabl);
+		tabl = reduce_main(&s, tabl);
 	}
 	if (end(&s) == 1)
 		return (1);

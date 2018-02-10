@@ -41,3 +41,4 @@ void my_error(char *str);
 int my_put_nbr_error(int nb);
 void my_put_error(char c);
 int end(s_t *s);
+char **reduce_main(s_t *s, char **tabl);
