@@ -26,3 +26,44 @@ int get_nbr(char *str)
 	my_revstr(str);
 	return (result);
 }
+
+void my_error(char *str)
+{
+	write(2, &str, my_strlen(str));
+}
+
+int my_put_nbr_error(int nb)
+{
+	int mod = 0;
+
+	if (nb < 0) {
+		my_put_error('-');
+		nb = -nb;
+	}
+	if (nb >= 10) {
+		mod = nb % 10;
+		nb = nb / 10;
+		my_put_nbr(nb);
+		my_put_error(mod + 48);
+	}
+	else
+		my_put_error(nb + 48);
+	return (0);
+}
+
+void my_put_error(char c)
+{
+	write(2, &c, 1);
+}
+
+int end(s_t *s)
+{
+	if (s->ia_or_you == 0) {
+		my_putstr("You lost, too bad...\n");
+		return (2);
+	}
+	else {
+		my_putstr("I lost... snif... but I'll get you next time!!\n");
+		return (1);
+	}
+}

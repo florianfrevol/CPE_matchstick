@@ -19,7 +19,7 @@ int check_enought_2(char *str, char **tabl, s_t *s)
 		i ++;
 	}
 	if (number > e) {
-		my_putstr("Error: not enough matches on this line\n");
+		my_error("Error: not enough matches on this line\n");
 		return (1);
 	}
 	return (0);
@@ -28,13 +28,13 @@ int check_enought_2(char *str, char **tabl, s_t *s)
 int errors(int argc, char **argv, s_t *s)
 {
 	if (argc < 3) {
-		my_putstr("argument invalid\n");
+		my_error("argument invalid\n");
 		return (1);
 	}
 	s->nbr_lign = get_nbr(argv[1]);
 	s->nbr_max_stick = get_nbr(argv[2]);
 	if (s->nbr_lign > 99 || s->nbr_lign == 0) {
-		my_putstr("numbers of sticks invalid\n");
+		my_error("numbers of sticks invalid\n");
 		return (1);
 	}
 	s->ia_or_you = 1;
@@ -68,18 +68,6 @@ int pipe_are_real(char **tabl, s_t *s)
 		i ++;
 	}
 	return (0);
-}
-
-int end(s_t *s)
-{
-	if (s->ia_or_you == 0) {
-		my_putstr("You lost, too bad...\n");
-		return (2);
-	}
-	else {
-		my_putstr("I lost... snif... but I'll get you next time!!\n");
-		return (1);
-	}
 }
 
 int main(int argc, char **argv)

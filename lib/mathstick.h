@@ -36,3 +36,7 @@ void display_tabl(char **tabl);
 char **ia_turn(char **tabl, s_t *s);
 void display_sentence(s_t *s, char **tabl);
 char **delete_pipe_ia(int first_choice, int second_choice, char **tabl);
+void my_error(char *str);
+int my_put_nbr_error(int nb);
+void my_put_error(char c);
+int end(s_t *s);
