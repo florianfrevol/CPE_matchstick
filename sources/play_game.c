@@ -75,13 +75,19 @@ char **capt_information(char **tabl, s_t *s)
 	}
 	my_putstr("Line: ");
 	str = get_next_line(0);
-	if (str == NULL)
-		
+	if (str == NULL) {
+		s->error = 1;
+		return (tabl);
+	}
 	if (check_imput(s, str) == 1 || check_enought(str, tabl) == 0)
 		return (0);
 	s->first_choice = get_nbr(str);
 	my_putstr("Matches: ");
 	str = get_next_line(0);
+	if (str == NULL) {
+		s->error = 1;
+		return (tabl);
+	}
 	if (check_imput_2(s, str) == 1 || check_enought_2(str, tabl, s) == 1)
 		return (0);
 	s->second_choice = get_nbr(str);

@@ -39,6 +39,7 @@ int errors(int argc, char **argv, s_t *s)
 	}
 	s->ia_or_you = 1;
 	s->check_turn = 1;
+	s->error = 0;
 	return (0);
 }
 
@@ -82,6 +83,8 @@ int main(int argc, char **argv)
 	while (pipe_are_real(tabl, &s) == 1) {
 		if (s.ia_or_you == 1)
 			capt_information(tabl, &s);
+		if (s.error == 1)
+			return (84);
 		if (s.ia_or_you == 0 && pipe_are_real(tabl, &s) == 1) {
 			ia_turn(tabl, &s);
 		}

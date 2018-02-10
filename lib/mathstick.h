@@ -13,6 +13,7 @@ typedef struct s
 	int second_choice;
 	int check_turn;
 	int ia_or_you;
+	int error;
 } s_t;
 
 #ifndef READ_SIZE
