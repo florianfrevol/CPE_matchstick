@@ -19,7 +19,7 @@ int check_enought_2(char *str, char **tabl, s_t *s)
 		i ++;
 	}
 	if (number > e) {
-		my_error("Error: not enough matches on this line\n");
+		my_putstr("Error: not enough matches on this line\n");
 		return (1);
 	}
 	return (0);
@@ -28,13 +28,13 @@ int check_enought_2(char *str, char **tabl, s_t *s)
 int errors(int argc, char **argv, s_t *s)
 {
 	if (argc < 3) {
-		my_error("argument invalid\n");
+		my_putstr("argument invalid\n");
 		return (1);
 	}
 	s->nbr_lign = get_nbr(argv[1]);
 	s->nbr_max_stick = get_nbr(argv[2]);
 	if (s->nbr_lign > 99 || s->nbr_lign == 0) {
-		my_error("numbers of sticks invalid\n");
+		my_putstr("numbers of sticks invalid\n");
 		return (1);
 	}
 	s->ia_or_you = 1;

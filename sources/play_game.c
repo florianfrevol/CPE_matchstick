@@ -25,11 +25,11 @@ int check_if_number(char *str)
 int check_imput(s_t *s, char *str)
 {
 	if (check_if_number(str) == 0) {
-		my_error("Error: invalid input (positive number expected)\n");
+		my_putstr("Error: invalid input (positive number expected)\n");
 		return (1);
 	}
 	if (get_nbr(str) > s->nbr_lign) {
-		my_error("Error: this line is out of range\n");
+		my_putstr("Error: this line is out of range\n");
 		return (1);
 	}
 	return (0);
@@ -45,20 +45,20 @@ int check_enought(char *str, char **tabl)
 			return (1);
 		i ++;
 	}
-	my_error("Error: not enough matches on this line\n");
+	my_putstr("Error: not enough matches on this line\n");
 	return (0);
 }
 
 int check_imput_2(s_t *s, char *str)
 {
 	if (check_if_number(str) == 0) {
-		my_error("Error: invalid input (positive number expected)\n");
+		my_putstr("Error: invalid input (positive number expected)\n");
 		return (1);
 	}
 	if (get_nbr(str) > s->nbr_max_stick) {
-		my_error("Error: you cannot remove more than ");
-		my_put_nbr_error(s->nbr_max_stick);
-		my_error(" matches per turn\n");
+		my_putstr("Error: you cannot remove more than ");
+		my_put_nbr(s->nbr_max_stick);
+		my_putstr(" matches per turn\n");
 		return (1);
 	}
 	return (0);
