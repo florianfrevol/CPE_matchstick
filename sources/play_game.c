@@ -68,21 +68,11 @@ char **capt_information(char **tabl, s_t *s)
 {
 	char *str;
 
-	if (s->check_turn == 1) {
-		display_tabl(tabl);
-		my_putstr("\nYour turn:\n");
-		s->check_turn ++;
-	}
-	my_putstr("Line: ");
-	str = get_next_line(0);
-	if (str == NULL) {
-		s->error = 1;
+	tabl = reduce_put_info(s, tabl);
+	if (s->check == 1) {
+		s->check = 0;
 		return (tabl);
 	}
-	if (check_imput(s, str) == 1 || check_enought(str, tabl) == 0)
-		return (0);
-	s->first_choice = get_nbr(str);
-	my_putstr("Matches: ");
 	str = get_next_line(0);
 	if (str == NULL) {
 		s->error = 1;

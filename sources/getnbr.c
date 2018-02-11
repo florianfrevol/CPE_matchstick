@@ -55,25 +55,3 @@ void my_put_error(char c)
 {
 	write(2, &c, 1);
 }
-
-int end(s_t *s)
-{
-	if (s->ia_or_you == 0) {
-		my_putstr("You lost, too bad...\n");
-		return (2);
-	}
-	else {
-		my_putstr("I lost... snif... but I'll get you next time!!\n");
-		return (1);
-	}
-}
-
-char **reduce_main(s_t *s, char **tabl)
-{
-	if (s->ia_or_you == 0 && pipe_are_real(tabl, s) == 1) {
-		ia_turn(tabl, s);
-	}
-	if (s->ia_or_you == 1 && pipe_are_real(tabl, s) == 0)
-		display_tabl(tabl);
-	return (tabl);
-}

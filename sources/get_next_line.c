@@ -30,8 +30,8 @@ char *get_next_line(int fd)
 {
 	int i;
 	int size;
-	static char buf[READ_SIZE];
 	char *str;
+	static char buf[READ_SIZE];
 
 	i = 0;
 	size = 0;
@@ -44,6 +44,28 @@ char *get_next_line(int fd)
 	}
 	if (size == 0 && i == 0)
 		return (NULL);
-  	else
+	else
 		return (str);
+}
+
+int end(s_t *s)
+{
+	if (s->ia_or_you == 0) {
+		my_putstr("You lost, too bad...\n");
+		return (2);
+	}
+	else {
+		my_putstr("I lost... snif... but I'll get you next time!!\n");
+		return (1);
+	}
+}
+
+char **reduce_main(s_t *s, char **tabl)
+{
+	if (s->ia_or_you == 0 && pipe_are_real(tabl, s) == 1) {
+		ia_turn(tabl, s);
+	}
+	if (s->ia_or_you == 1 && pipe_are_real(tabl, s) == 0)
+		display_tabl(tabl);
+	return (tabl);
 }

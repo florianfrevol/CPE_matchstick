@@ -28,7 +28,8 @@ int choose_the_lign(s_t *s, char **tabl)
 	int number;
 
 	number = random() % (s->nbr_lign) + 1;
-	while ((number <= 0 && number > (s->nbr_lign + 1)) || check_pipe_lign(tabl, number) == 0) {
+	while ((number <= 0 && number > (s->nbr_lign + 1))
+		|| check_pipe_lign(tabl, number) == 0) {
 		number = random() % (s->nbr_lign) + 1;
 	}
 	return (number);

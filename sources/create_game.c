@@ -21,7 +21,6 @@ char *putstars(s_t *s)
 	return (str);
 }
 
-
 char **create_game(s_t *s)
 {
 	char **tabl = malloc(sizeof(char *) * (s->nbr_lign + 3));
@@ -67,5 +66,30 @@ char **put_spaces(s_t *s, char **tabl)
 		space ++;
 		i --;
 	}
+	return (tabl);
+}
+
+char **reduce_put_info(s_t *s, char **tabl)
+{
+	char *str;
+
+	if (s->check_turn == 1) {
+		display_tabl(tabl);
+		my_putstr("\nYour turn:\n");
+		s->check_turn ++;
+	}
+	my_putstr("Line: ");
+	str = get_next_line(0);
+	if (str == NULL) {
+		s->error = 1;
+		s->check = 1;
+		return (tabl);
+	}
+	if (check_imput(s, str) == 1 || check_enought(str, tabl) == 0) {
+		s->check = 1;
+		return (tabl);
+	}
+	s->first_choice = get_nbr(str);
+	my_putstr("Matches: ");
 	return (tabl);
 }

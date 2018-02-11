@@ -14,6 +14,7 @@ typedef struct s
 	int check_turn;
 	int ia_or_you;
 	int error;
+	int check;
 } s_t;
 
 #ifndef READ_SIZE
@@ -42,3 +43,6 @@ int my_put_nbr_error(int nb);
 void my_put_error(char c);
 int end(s_t *s);
 char **reduce_main(s_t *s, char **tabl);
+int check_imput(s_t *s, char *str);
+int check_enought(char *str, char **tabl);
+char **reduce_put_info(s_t *s, char **tabl);

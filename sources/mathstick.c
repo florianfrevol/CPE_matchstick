@@ -11,7 +11,7 @@ int check_enought_2(char *str, char **tabl, s_t *s)
 {
 	int i = 0;
 	int number = get_nbr(str);
-	int e = 0; 
+	int e = 0;
 
 	while (tabl[s->first_choice][i] != '\0') {
 		if (tabl[s->first_choice][i] == '|')
@@ -40,6 +40,7 @@ int errors(int argc, char **argv, s_t *s)
 	s->ia_or_you = 1;
 	s->check_turn = 1;
 	s->error = 0;
+	s->check = 0;
 	return (0);
 }
 
