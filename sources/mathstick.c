@@ -78,14 +78,14 @@ int main(int argc, char **argv)
 	char **tabl;
 
 	if (errors(argc, argv, &s) == 1)
-		return (84);
+		return (0);
 	tabl = create_game(&s);
 	tabl = put_spaces(&s, tabl);
 	while (pipe_are_real(tabl, &s) == 1) {
 		if (s.ia_or_you == 1)
 			capt_information(tabl, &s);
 		if (s.error == 1)
-			return (84);
+			return (0);
 		tabl = reduce_main(&s, tabl);
 	}
 	if (end(&s) == 1)
